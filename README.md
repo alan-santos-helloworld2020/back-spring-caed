@@ -54,3 +54,24 @@ curl -X POST "http://localhost:8080/notas/lote" \
 
 
 curl "http://localhost:8080/notas/medias?turmaId=1&disciplinaId=1"
+
+
+## Dica de modelo de autenticação
+
+O **OAuth 2.0** (Open Authorization) é um protocolo de **autorização** amplamente utilizado, que traz diversas vantagens para a segurança e usabilidade de uma API.
+
+Aqui está uma breve descrição das principais vantagens:
+
+1.  **Segurança Aprimorada:**
+    * **Não Compartilha Credenciais:** O aplicativo cliente (terceiro) nunca tem acesso direto ao nome de usuário e senha do proprietário do recurso. Em vez disso, ele recebe um **Token de Acesso** temporário.
+    * **Tokens com Escopo Limitado:** O acesso é concedido por meio de *scopes* (escopos), que especificam exatamente o que o aplicativo pode fazer (ex: apenas ler e-mails, mas não enviar). Isso minimiza o risco em caso de comprometimento do token.
+    * **Tokens com Expiração:** Os tokens de acesso geralmente têm um tempo de vida curto, limitando a janela de tempo em que um token roubado pode ser usado.
+
+2.  **Melhor Experiência do Usuário (UX):**
+    * **Login com Terceiros (SSO):** Facilita o uso de serviços de terceiros (como Google, Facebook) para autenticação, eliminando a necessidade de criar e lembrar novas senhas para cada aplicativo.
+    * **Controle do Usuário:** O usuário tem controle granular sobre quais permissões concede a cada aplicativo, visualizando e consentindo explicitamente o escopo de acesso.
+
+3.  **Flexibilidade e Padrão da Indústria:**
+    * **Diversos Tipos de Aplicação:** Suporta vários fluxos (Grant Types) adequados para diferentes cenários, como aplicações web, mobile, desktop e comunicação máquina a máquina.
+    * **Padrão Adotado:** É o padrão de mercado, o que significa que há uma vasta documentação, ferramentas e bibliotecas que facilitam a sua implementação.
+    * **Separação de Funções:** Separa claramente a função de autenticação (quem o usuário é) e a de autorização (o que o usuário pode fazer), tornando o sistema mais robusto e modular.
